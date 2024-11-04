@@ -14,6 +14,7 @@ public class Pedido {
     private Long id;
     @Column(name = "pedido-dataHora")
     private LocalDateTime dataHora;
+    private Cliente cliente;
 
     private Set<Produto> produtos;
 
@@ -32,5 +33,9 @@ public class Pedido {
 
     public Set<Produto> getProdutos() {
         return produtos;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 }
