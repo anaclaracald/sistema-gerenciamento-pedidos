@@ -4,13 +4,17 @@ import bootcampDio.gerenciamento_pedidos.model.Cliente;
 import bootcampDio.gerenciamento_pedidos.model.Pedido;
 import bootcampDio.gerenciamento_pedidos.model.Produto;
 
+import java.util.List;
+
 public interface ProdutoService {
 
-    void inserir();
+    Produto inserir(Long id, String nome, String categoria, Double preco, boolean disponibilidade);
 
-    void atualizar(Long id);
+    //void atualizar(Long id);
 
     void deletar(Long id);
+
+    List<Produto> get();
 
     Produto buscarProdutoId(Long id);
 

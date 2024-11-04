@@ -1,6 +1,7 @@
 package bootcampDio.gerenciamento_pedidos.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -13,15 +14,19 @@ public class Pedido {
     @Column(name = "pedido-id")
     private Long id;
     @Column(name = "pedido-dataHora")
+    @CreationTimestamp
     private LocalDateTime dataHora;
+    @ManyToOne()
     private Cliente cliente;
-
+    @OneToMany(mappedBy = "pedido")
     private Set<Produto> produtos;
 
-    @ManyToMany
-    @JoinTable(name = "pedido",
-            joinColumns = @JoinColumn(name = "pedido-id"),
-            inverseJoinColumns = @JoinColumn(name = "produto-id"))
+    public Pedido(Long id, LocalDateTime dataHora, Cliente cliente) {
+        this.id = id;
+        this.dataHora = dataHora;
+        this.cliente = cliente;
+    }
+
 
     public Long getId() {
         return id;

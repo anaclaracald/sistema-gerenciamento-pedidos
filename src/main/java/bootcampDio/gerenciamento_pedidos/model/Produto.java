@@ -1,6 +1,7 @@
 package bootcampDio.gerenciamento_pedidos.model;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Set;
 
@@ -21,9 +22,15 @@ public class Produto {
     @Column(name = "produto-disponibilidade")
     private boolean disponibilidade;
 
-    @ManyToMany(mappedBy = "produto")
+    public Produto(Long id, String nome, String categoria, Double preco, boolean disponibilidade) {
+        this.id = id;
+        this.nome = nome;
+        this.categoria = categoria;
+        this.preco = preco;
+        this.disponibilidade = disponibilidade;
+    }
 
-    private Set<Pedido> pedidos;
+    @ManyToMany(mappedBy = "produto")
 
     public Long getId() {
         return id;
@@ -45,7 +52,4 @@ public class Produto {
         return disponibilidade;
     }
 
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
 }
