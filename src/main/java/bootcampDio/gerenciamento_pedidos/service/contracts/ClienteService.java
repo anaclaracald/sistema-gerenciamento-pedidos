@@ -5,13 +5,13 @@ import bootcampDio.gerenciamento_pedidos.model.Pedido;
 import bootcampDio.gerenciamento_pedidos.model.Produto;
 
 public interface ClienteService {
-    void novoCliente();
+    Cliente novoCliente(String cpf, String nome);
 
-    boolean verificarCPF(Long cpf);
+    boolean verificarCPF(String cpf);
 
-    void deletarCliente(Long cpf);
+    void deletarCliente(String cpf);
 
-    Cliente buscarCliente(Long cpf);
+    Cliente buscarCliente(String cpf);
 
-    Pedido buscarPedido(Cliente cpf);
+    //Pedido buscarPedido(Cliente cpf);
 }

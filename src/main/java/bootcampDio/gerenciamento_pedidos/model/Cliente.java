@@ -7,16 +7,18 @@ import jakarta.persistence.*;
 public class Cliente {
     @Id
     @Column(name = "cliente-cpf")
-    private Long cpf;
+    private String cpf;
     @Column(name = "cliente-nome")
     private String nome;
 
-    public Cliente(Long cpf, String nome) {
+    public Cliente(String cpf, String nome) {
         this.cpf = cpf;
         this.nome = nome;
     }
 
-    public Long getCpf() {
+    @OneToMany
+
+    public String getCpf() {
         return cpf;
     }
 
