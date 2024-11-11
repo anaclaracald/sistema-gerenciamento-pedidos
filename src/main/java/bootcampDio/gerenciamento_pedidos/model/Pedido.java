@@ -7,26 +7,33 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
+@Table(name = "pedido")
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "pedido-id")
+    @Column(name = "pedido_id")
     private Long id;
-    @Column(name = "pedido-dataHora")
+
+    @Column(name = "pedido_dataHora")
     @CreationTimestamp
     private LocalDateTime dataHora;
-    @ManyToOne()
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_cpf", referencedColumnName = "cliente-cpf")
     private Cliente cliente;
-    @OneToMany(mappedBy = "pedido")
+
+    @ManyToMany(mappedBy = "pedidos")
     private Set<Produto> produtos;
+
+    public Pedido() {
+    }
 
     public Pedido(Long id, LocalDateTime dataHora, Cliente cliente) {
         this.id = id;
         this.dataHora = dataHora;
         this.cliente = cliente;
     }
-
 
     public Long getId() {
         return id;

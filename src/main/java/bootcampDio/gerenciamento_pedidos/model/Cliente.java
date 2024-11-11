@@ -9,20 +9,21 @@ public class Cliente {
     @Column(name = "cliente-cpf")
     private String cpf;
     @Column(name = "cliente-nome")
-    private String nome;
+    private String name;
 
-    public Cliente(String cpf, String nome) {
-        this.cpf = cpf;
-        this.nome = nome;
+    public Cliente() {
     }
 
-    @OneToMany
+    public Cliente(String cpf, String name) {
+        this.cpf = cpf;
+        this.name = name;
+    }
 
     public String getCpf() {
         return cpf;
     }
 
     public String getNome() {
-        return nome;
+        return name;
     }
 }

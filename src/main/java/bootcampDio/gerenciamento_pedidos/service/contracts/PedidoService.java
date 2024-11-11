@@ -3,10 +3,13 @@ package bootcampDio.gerenciamento_pedidos.service.contracts;
 import bootcampDio.gerenciamento_pedidos.model.Pedido;
 import bootcampDio.gerenciamento_pedidos.model.Produto;
 
-public interface PedidoService {
-    void novoPedido();
+import java.util.List;
+import java.util.Set;
 
-    void atualizarPedido(Long id);
+public interface PedidoService {
+    void novoPedido(Pedido pedido);
+
+    //void atualizarPedido(Long id);
 
     void deletarPedido(Long id);
 
@@ -14,7 +17,7 @@ public interface PedidoService {
 
     Pedido buscarPedidoId(Long id);
 
-    Pedido buscarPedidoCliente(Long cpf);
+    List<Pedido> findPedidosByClienteCpf(String cpf);
 
-    Produto listarProdutos(Long id);
+    Set<Produto> listarProdutos(Long id);
 }

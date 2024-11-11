@@ -1,8 +1,8 @@
 package bootcampDio.gerenciamento_pedidos.model;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
+import javax.management.ConstructorParameters;
 import java.util.Set;
 
 @Entity
@@ -11,18 +11,34 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "produto-id")
+    @Column(name = "produto_id")
     private Long id;
-    @Column(name = "produto-nome")
-    private String nome;
-    @Column(name = "produto-categoria")
+
+    @Column(name = "produto_nome")
+    private String name;
+
+    @Column(name = "produto_categoria")
     private String categoria;
-    @Column(name = "produto-preco")
+
+    @Column(name = "produto_preco")
     private Double preco;
-    @Column(name = "produto-disponibilidade")
+
+    @Column(name = "produto_disponibilidade")
     private boolean disponibilidade;
 
-    public Produto(Long id, String nome, String categoria, Double preco, boolean disponibilidade) {
+    // Many-to-many relationship with Pedido
+    @ManyToMany
+    @JoinTable(
+            name = "produto_pedido",
+            joinColumns = @JoinColumn(name = "produto_id"),
+            inverseJoinColumns = @JoinColumn(name = "pedido_id")
+    )
+    private Set<Pedido> pedidos;
+
+    public Produto() {
+    }
+
+    public Produto(Long id, String name, String categoria, Double preco, boolean disponibilidade) {
         this.id = id;
         this.nome = nome;
         this.categoria = categoria;
@@ -30,8 +46,7 @@ public class Produto {
         this.disponibilidade = disponibilidade;
     }
 
-    @ManyToMany(mappedBy = "produto")
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -52,4 +67,11 @@ public class Produto {
         return disponibilidade;
     }
 
+    public Set<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 }

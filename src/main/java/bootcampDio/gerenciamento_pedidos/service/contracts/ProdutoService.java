@@ -8,16 +8,16 @@ import java.util.List;
 
 public interface ProdutoService {
 
-    Produto inserir(Long id, String nome, String categoria, Double preco, boolean disponibilidade);
+    Produto inserir(Long id, String name, String categoria, Double preco, boolean disponibilidade);
 
     //void atualizar(Long id);
 
-    void deletar(Long id);
+    void deleteById(Long id);
 
     List<Produto> get();
 
     Produto buscarProdutoId(Long id);
 
-    Produto buscarProdutoNome(String nome);
+    Produto buscarProdutoNome(String name);
 
 }

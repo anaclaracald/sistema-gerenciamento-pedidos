@@ -16,14 +16,14 @@ public class ProdutoServiceImp implements ProdutoService {
     private ProdutoRepository produtoRepository;
 
     @Override
-    public Produto inserir(Long id, String nome, String categoria, Double preco, boolean disponibilidade) {
-        Produto produto = new Produto(id, nome, categoria, preco, disponibilidade);
+    public Produto inserir(Long id, String name, String categoria, Double preco, boolean disponibilidade) {
+        Produto produto = new Produto(id, name, categoria, preco, disponibilidade);
         return produtoRepository.save(produto);
     }
 
     @Override
-    public void deletar(Long id) {
-        produtoRepository.delete(id);
+    public void deleteById(Long id) {
+        produtoRepository.deleteById(id);
     }
 
     @Override
@@ -42,8 +42,8 @@ public class ProdutoServiceImp implements ProdutoService {
     }
 
     @Override
-    public Produto buscarProdutoNome(String nome) {
-        Optional<Produto> produto = produtoRepository.findByName(nome);
+    public Produto buscarProdutoNome(String name) {
+        Optional<Produto> produto = produtoRepository.findByName(name);
         if(produto.isPresent()){
             return produto.get();
         }else {

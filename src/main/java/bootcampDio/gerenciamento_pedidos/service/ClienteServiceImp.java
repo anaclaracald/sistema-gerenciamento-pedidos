@@ -16,8 +16,8 @@ public class ClienteServiceImp implements ClienteService {
     private ClienteRepository clienteRepository;
 
     @Override
-    public Cliente novoCliente(String cpf, String nome) {
-        Cliente cliente = new Cliente(cpf, nome);
+    public Cliente novoCliente(String cpf, String name) {
+        Cliente cliente = new Cliente(cpf, name);
         return clienteRepository.save(cliente);
     }
 

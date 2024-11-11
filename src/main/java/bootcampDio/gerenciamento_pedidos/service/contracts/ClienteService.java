@@ -5,7 +5,7 @@ import bootcampDio.gerenciamento_pedidos.model.Pedido;
 import bootcampDio.gerenciamento_pedidos.model.Produto;
 
 public interface ClienteService {
-    Cliente novoCliente(String cpf, String nome);
+    Cliente novoCliente(String cpf, String name);
 
     boolean verificarCPF(String cpf);
 
