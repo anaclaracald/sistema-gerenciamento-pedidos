@@ -1,8 +1,6 @@
-package bootcampDio.gerenciamento_pedidos.service.contracts;
+package bootcampDio.gerenciamento_pedidos.domain.service.contracts;
 
-import bootcampDio.gerenciamento_pedidos.model.Cliente;
-import bootcampDio.gerenciamento_pedidos.model.Pedido;
-import bootcampDio.gerenciamento_pedidos.model.Produto;
+import bootcampDio.gerenciamento_pedidos.domain.model.Cliente;
 
 public interface ClienteService {
     Cliente novoCliente(String cpf, String name);

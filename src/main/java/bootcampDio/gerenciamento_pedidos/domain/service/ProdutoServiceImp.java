@@ -1,8 +1,8 @@
-package bootcampDio.gerenciamento_pedidos.service;
+package bootcampDio.gerenciamento_pedidos.domain.service;
 
-import bootcampDio.gerenciamento_pedidos.model.Produto;
-import bootcampDio.gerenciamento_pedidos.repository.ProdutoRepository;
-import bootcampDio.gerenciamento_pedidos.service.contracts.ProdutoService;
+import bootcampDio.gerenciamento_pedidos.domain.model.Produto;
+import bootcampDio.gerenciamento_pedidos.domain.repository.ProdutoRepository;
+import bootcampDio.gerenciamento_pedidos.domain.service.contracts.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +16,8 @@ public class ProdutoServiceImp implements ProdutoService {
     private ProdutoRepository produtoRepository;
 
     @Override
-    public Produto inserir(Long id, String name, String categoria, Double preco, boolean disponibilidade) {
-        Produto produto = new Produto(id, name, categoria, preco, disponibilidade);
+    public Produto novoProduto( String name, String categoria, Double preco) {
+        Produto produto = new Produto(name, categoria, preco);
         return produtoRepository.save(produto);
     }
 
@@ -28,7 +28,7 @@ public class ProdutoServiceImp implements ProdutoService {
 
     @Override
     public List<Produto> get() {
-        return (List<Produto>) produtoRepository.findAll();
+        return produtoRepository.findAll();
     }
 
     @Override

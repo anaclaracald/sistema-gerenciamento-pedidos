@@ -1,6 +1,6 @@
-package bootcampDio.gerenciamento_pedidos.repository;
+package bootcampDio.gerenciamento_pedidos.domain.repository;
 
-import bootcampDio.gerenciamento_pedidos.model.Pedido;
+import bootcampDio.gerenciamento_pedidos.domain.model.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

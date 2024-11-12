@@ -1,15 +1,17 @@
-package bootcampDio.gerenciamento_pedidos.service;
+package bootcampDio.gerenciamento_pedidos.domain.service;
 
-import bootcampDio.gerenciamento_pedidos.model.Cliente;
-import bootcampDio.gerenciamento_pedidos.repository.ClienteRepository;
-import bootcampDio.gerenciamento_pedidos.service.contracts.ClienteService;
+import bootcampDio.gerenciamento_pedidos.domain.model.Cliente;
+import bootcampDio.gerenciamento_pedidos.domain.repository.ClienteRepository;
+import bootcampDio.gerenciamento_pedidos.domain.service.contracts.ClienteService;
 import br.com.caelum.stella.ValidationMessage;
 import br.com.caelum.stella.validation.CPFValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ClienteServiceImp implements ClienteService {
 
     @Autowired

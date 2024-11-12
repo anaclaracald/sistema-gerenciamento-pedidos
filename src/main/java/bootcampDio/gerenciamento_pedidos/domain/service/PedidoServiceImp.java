@@ -1,11 +1,11 @@
-package bootcampDio.gerenciamento_pedidos.service;
+package bootcampDio.gerenciamento_pedidos.domain.service;
 
-import bootcampDio.gerenciamento_pedidos.model.Pedido;
-import bootcampDio.gerenciamento_pedidos.model.Produto;
-import bootcampDio.gerenciamento_pedidos.repository.ClienteRepository;
-import bootcampDio.gerenciamento_pedidos.repository.PedidoRepository;
-import bootcampDio.gerenciamento_pedidos.repository.ProdutoRepository;
-import bootcampDio.gerenciamento_pedidos.service.contracts.PedidoService;
+import bootcampDio.gerenciamento_pedidos.domain.model.Pedido;
+import bootcampDio.gerenciamento_pedidos.domain.model.Produto;
+import bootcampDio.gerenciamento_pedidos.domain.repository.ClienteRepository;
+import bootcampDio.gerenciamento_pedidos.domain.repository.PedidoRepository;
+import bootcampDio.gerenciamento_pedidos.domain.repository.ProdutoRepository;
+import bootcampDio.gerenciamento_pedidos.domain.service.contracts.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +25,8 @@ public class PedidoServiceImp implements PedidoService {
 
 
     @Override
-    public void novoPedido(Pedido pedido) {
-        pedidoRepository.save(pedido);
+    public Pedido novoPedido(Pedido pedido) {
+        return pedidoRepository.save(pedido);
     }
 
     @Override

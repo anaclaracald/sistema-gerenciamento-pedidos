@@ -1,4 +1,4 @@
-package bootcampDio.gerenciamento_pedidos.model;
+package bootcampDio.gerenciamento_pedidos.domain.model;
 
 import jakarta.persistence.*;
 

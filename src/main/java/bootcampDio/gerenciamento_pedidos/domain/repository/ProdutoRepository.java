@@ -1,7 +1,6 @@
-package bootcampDio.gerenciamento_pedidos.repository;
+package bootcampDio.gerenciamento_pedidos.domain.repository;
 
-import bootcampDio.gerenciamento_pedidos.model.Cliente;
-import bootcampDio.gerenciamento_pedidos.model.Produto;
+import bootcampDio.gerenciamento_pedidos.domain.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

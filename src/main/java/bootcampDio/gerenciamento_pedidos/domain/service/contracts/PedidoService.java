@@ -1,13 +1,13 @@
-package bootcampDio.gerenciamento_pedidos.service.contracts;
+package bootcampDio.gerenciamento_pedidos.domain.service.contracts;
 
-import bootcampDio.gerenciamento_pedidos.model.Pedido;
-import bootcampDio.gerenciamento_pedidos.model.Produto;
+import bootcampDio.gerenciamento_pedidos.domain.model.Pedido;
+import bootcampDio.gerenciamento_pedidos.domain.model.Produto;
 
 import java.util.List;
 import java.util.Set;
 
 public interface PedidoService {
-    void novoPedido(Pedido pedido);
+    Pedido novoPedido(Pedido pedido);
 
     //void atualizarPedido(Long id);
 

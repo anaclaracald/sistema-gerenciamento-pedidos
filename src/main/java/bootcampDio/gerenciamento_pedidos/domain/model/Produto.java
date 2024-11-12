@@ -1,8 +1,7 @@
-package bootcampDio.gerenciamento_pedidos.model;
+package bootcampDio.gerenciamento_pedidos.domain.model;
 
 import jakarta.persistence.*;
 
-import javax.management.ConstructorParameters;
 import java.util.Set;
 
 @Entity
@@ -38,12 +37,20 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long id, String name, String categoria, Double preco, boolean disponibilidade) {
-        this.id = id;
-        this.nome = nome;
+    public Produto(String name, String categoria, Double preco) {
+        this.name = name;
         this.categoria = categoria;
         this.preco = preco;
-        this.disponibilidade = disponibilidade;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Produto{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", categoria='").append(categoria).append('\'');
+        sb.append(", preco=").append(preco);
+        sb.append('}');
+        return sb.toString();
     }
 
     // Getters and setters
@@ -52,7 +59,7 @@ public class Produto {
     }
 
     public String getNome() {
-        return nome;
+        return name;
     }
 
     public String getCategoria() {
