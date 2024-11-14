@@ -47,7 +47,7 @@ public class ClienteController {
         }
     }
 
-    @PostMapping("/cliente/verificar-cpf")
+    @PostMapping("/verificar-cpf")
     public ResponseEntity<Boolean> verificarCPF(@RequestBody String cpf){
         boolean cpfValido= service.verificarCPF(cpf);
         return ResponseEntity.ok(cpfValido);

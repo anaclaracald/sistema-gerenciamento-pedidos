@@ -3,6 +3,7 @@ package bootcampDio.gerenciamento_pedidos;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class GerenciamentoPedidosApplication {
 
