@@ -20,7 +20,7 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity<Produto> salvarProduto(@RequestBody Produto produto){
-        Produto produtoSalvo = service.novoProduto(produto.getNome(), produto.getCategoria(), produto.getPreco());
+        Produto produtoSalvo = service.novoProduto(produto.getName(), produto.getCategoria(), produto.getPreco());
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoSalvo);
     }
 

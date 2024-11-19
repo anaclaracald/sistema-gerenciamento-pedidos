@@ -1,11 +1,16 @@
 package bootcampDio.gerenciamento_pedidos.domain.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "produto")
+@NoArgsConstructor
+@ToString
 public class Produto {
 
     @Id
@@ -34,31 +39,17 @@ public class Produto {
     )
     private Set<Pedido> pedidos;
 
-    public Produto() {
-    }
-
     public Produto(String name, String categoria, Double preco) {
         this.name = name;
         this.categoria = categoria;
         this.preco = preco;
     }
 
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("Produto{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", categoria='").append(categoria).append('\'');
-        sb.append(", preco=").append(preco);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    // Getters and setters
     public Long getId() {
         return id;
     }
 
-    public String getNome() {
+    public String getName() {
         return name;
     }
 
@@ -76,9 +67,5 @@ public class Produto {
 
     public Set<Pedido> getPedidos() {
         return pedidos;
-    }
-
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
     }
 }
